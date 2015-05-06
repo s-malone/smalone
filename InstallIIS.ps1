@@ -30,7 +30,7 @@ Configuration InstallIIS
 	File LandingPage
 	{
 		DestinationPath = "C:\inetpub\wwwroot\index.html"
-		Contents "<html><head></head><body><h1>Welcome to your web server farm in " + $Location + "!</h1></body></html>"
+		Contents = "<html><head></head><body><h1>Welcome to your web server farm in " + $Location + "!</h1></body></html>"
 	}
   }
 }
