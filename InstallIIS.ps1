@@ -2,7 +2,7 @@ Configuration InstallIIS
 {
   param ($MachineName)
 
-  Node $MachineName
+  Node ($MachineName)
   {
     #Install the IIS Role
     WindowsFeature IIS
