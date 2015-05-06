@@ -1,6 +1,9 @@
 Configuration InstallIIS
 {
-  param ($MachineName)
+  param (
+	$MachineName,
+	$Location
+  )
   
   Node ($MachineName)
   {
@@ -18,10 +21,16 @@ Configuration InstallIIS
       Name = “Web-Asp-Net45”
     }
 
-     WindowsFeature WebServerManagementConsole
+    WindowsFeature WebServerManagementConsole
     {
         Name = "Web-Mgmt-Console"
         Ensure = "Present"
     }
+	
+	File LandingPage
+	{
+		DestinationPath = "C:\inetpub\wwwroot\index.html"
+		Contents "<html><head></head><body><h1>Welcome to your web server farm in " + $Location + "!</h1></body></html>"
+	}
   }
 }
