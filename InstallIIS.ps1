@@ -1,18 +1,10 @@
 Configuration InstallIIS
 {
   param ($MachineName)
-
-  Import-DSCResource -Module xSystemSecurity -Name xIEEsc
   
   Node ($MachineName)
   {
-	xIEEsc EnableIEEscAdmin
-	{
-        IsEnabled = False
-        UserRole  = "Administrators"
-	}
-		
-    #Install the IIS Role
+	#Install the IIS Role
     WindowsFeature IIS
     {
       Ensure = “Present”
